@@ -3,7 +3,7 @@
     <a aria-label="Open user menu" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" href="#">
       <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)">SA</span>
       <div class="d-none d-xl-block ps-2">
-        <div>{{$auth.user.name}}</div>
+        <!-- <div>{{$auth.user.name}}</div> -->
         <div class="mt-1 small text-muted">Online</div>
       </div>
     </a>
