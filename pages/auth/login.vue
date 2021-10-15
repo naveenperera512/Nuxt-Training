@@ -74,32 +74,32 @@
 </template>
 
 <script>
-  export default {
-    auth: 'guest',
-    data() {
-      return {
-        form: {
-          email: "",
-          password: "",
-          remember_me: ""
-        },
-        errors: [],
-        password_type: 'password'
+export default {
+  auth: 'guest',
+  data() {
+    return {
+      form: {
+        email: '',
+        password: '',
+        remember_me: ''
+      },
+      errors: [],
+      password_type: 'password'
+    }
+  },
+  methods: {
+    async login() {
+      try {
+        await this.$auth.loginWith('laravelSanctum', {data: this.form});
+      } catch (e) {
+        if (e.response.status === 422) this.errors = e.response.data.errors;
       }
     },
-    methods: {
-      async login() {
-        try {
-          await this.$auth.loginWith('laravelSanctum', {data: this.form});
-        } catch (e) {
-          if (e.response.status === 422) this.errors = e.response.data.errors;
-        }
-      },
-      passwordToggle() {
-        this.password_type = (this.password_type === "password") ? 'text' : 'password';
-      }
+    passwordToggle() {
+      this.password_type = (this.password_type === "password") ? 'text' : 'password';
     }
   }
+}
 </script>
 
 <style scoped>
